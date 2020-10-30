@@ -8,30 +8,50 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  <!-- jQuery and JS bundle w/ Popper.js -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
   <script src="js/index.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
 <body>
-  <div>
-    <h4>type a keyword</h4>
-    <div>
-      <label></label>
-      <input type="text" id="keyword" placeholder="...search">
-      <button id="submit">search</button>
-    </div>
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>City</th>
-            <th>State</th>
-          </tr>
-        </thead>
-        <tbody id="results">
-        </tbody>
-      </table>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h4>Search Stores</h4>
+        <div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="keyword" placeholder="...type something"
+              aria-describedby="submit">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="submit" class="btn btn-dark"><i
+                  class="fa fa-search" aria-hidden="true"></i> search</button>
+            </div>
+          </div>
+        </div>
+        <div id="data-content">
+          <table class="table">
+            <thead class="thead-dark ">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+              </tr>
+            </thead>
+            <tbody id="results">
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </body>

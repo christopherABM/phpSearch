@@ -3,6 +3,7 @@ $(document).ready(() => {
   const api = 'http://localhost:8080';
   const init = () => {
     $("#submit").click(() => { search() });
+    $('#data-content').hide();
   };
 
   const search = () => {
@@ -13,16 +14,22 @@ $(document).ready(() => {
   };
 
   const displayRecords = (data) => {
+    $('#data-content').show();
     $('#results').empty();
     let row = null;
-    data.forEach((item) => {
-      row = $('<tr>').addClass('bar');
-      row.append(`<td>${item.ID}<td>`);
-      row.append(`<td>${item.city}<td>`);
-      row.append(`<td>${item.name}<td>`);
-      row.append(`<td>${item.state}<td>`);
-      $('#results').append(row);
-    });
+    if(data.length){
+      data.forEach((item) => {
+        row = $('<tr scope="row">').addClass('bar');
+        row.append(`<td>${item.ID}</td>`);
+        row.append(`<td>${item.name}</td>`);
+        row.append(`<td>${item.city}</td>`);
+        row.append(`<td>${item.state}</td>`);
+        $('#results').append(row);
+      });
+      return
+    }
+    $('#results').append(`<td class="table-warning text-center" colspan="4"> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Sorry we found nothing, try another keyword</td>`);
+    
   };
 
   init();
