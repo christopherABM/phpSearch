@@ -3,6 +3,7 @@ $(document).ready(() => {
   const api = 'http://localhost:8080';
   const init = () => {
     $("#submit").click(() => { search() });
+    $("#keyword").on("keypress", (e) => { if (e.keyCode === 13) search(); });
     $('#data-content').hide();
   };
 
@@ -17,7 +18,7 @@ $(document).ready(() => {
     $('#data-content').show();
     $('#results').empty();
     let row = null;
-    if(data.length){
+    if (data.length) {
       data.forEach((item) => {
         row = $('<tr scope="row">').addClass('bar');
         row.append(`<td>${item.ID}</td>`);
@@ -29,7 +30,7 @@ $(document).ready(() => {
       return
     }
     $('#results').append(`<td class="table-warning text-center" colspan="4"> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Sorry we found nothing, try another keyword</td>`);
-    
+
   };
 
   init();
